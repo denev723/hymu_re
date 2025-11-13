@@ -1,0 +1,50 @@
+@use "sass:math";
+@use "sass:color";
+@use "sass:list";
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// flex-between: 양쪽 정렬
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// flex-wrap: flex + wrap
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// 한 줄 말줄임
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// 여러 줄 말줄임
+@mixin multi-ellipsis($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// px → rem 변환 함수 (62.5% 기준)
+// 사용 예시: font-size: rem(32); // 32px → 3.2rem
+@function rem($px, $base: 10) {
+    @return math.div($px, $base) * 1rem;
+}
+
+// line-height px → rem 변환 함수 (62.5% 기준)
+// 사용 예시: line-height: lh(24); // 24px → 2.4rem
+@function lh($px, $base: 10) {
+    @return math.div($px, $base) * 1rem;
+}
