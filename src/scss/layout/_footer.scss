@@ -1,0 +1,88 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.site-footer {
+    &__inner {
+        max-width: rem(1580);
+        margin: 0 auto;
+        padding: 0 rem(20);
+    }
+    &__content {
+        padding: rem(50) 0 rem(75);
+        border-bottom: 1px solid $color-black;
+    }
+    &__row {
+        &:not(:last-child) {
+            margin-bottom: rem(22);
+        }
+        &.site-footer__row--flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: rem(14) rem(20);
+        }
+    }
+    &__brand {
+        font-family: $font-nanum-square;
+        font-weight: 300;
+        font-size: rem(24);
+        line-height: lh(36);
+        text-transform: uppercase;
+        strong {
+            font-weight: 800;
+        }
+    }
+    &__info {
+        &-wrap {
+            display: flex;
+            gap: 0 rem(16);
+        }
+        &-title {
+            font-family: $font-nanum-square;
+            font-size: rem(16);
+            line-height: lh(28);
+        }
+        &-desc {
+            font-family: $font-nanum-square;
+            font-size: rem(16);
+            line-height: lh(28);
+        }
+    }
+    &__copyright {
+        padding: rem(20) 0 rem(58);
+        font-family: $font-nanum-square;
+        font-size: rem(16);
+        line-height: 1;
+        text-align: right;
+    }
+}
+
+.footer-menu {
+    border-top: rem(3) solid $color-black;
+    border-bottom: 1px solid $color-black;
+    font-size: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &__item {
+        display: inline-block;
+    }
+    &__link {
+        display: block;
+        padding: rem(30) rem(21);
+        font-family: $font-nanum-square;
+        font-size: rem(16);
+        line-height: 1;
+        color: $color-black;
+        transition: color 0.3s ease;
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}

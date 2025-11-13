@@ -3,3 +3,11 @@
 @use "base/font" as *;
 @use "base/typography" as *;
 @use "base/base" as *;
+
+// layout
+@use "layout/header" as *;
+@use "layout/body" as *;
+@use "layout/footer" as *;
+
+// components
+@use "components/button" as *;
