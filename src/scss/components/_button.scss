@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.btn {
+    &.btn-more {
+        width: rem(46);
+        height: rem(50);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        bottom: rem(2);
+        &:hover {
+            svg {
+                fill: $color-primary;
+            }
+        }
+        svg {
+            width: rem(39);
+            height: rem(38);
+            fill: $color-black;
+            transition: fill 0.3s ease;
+        }
+    }
+}

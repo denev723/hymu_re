@@ -1,0 +1,447 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// Visual 섹션
+.visual {
+    position: relative;
+    &__swiper {
+        .swiper-slide {
+            height: rem(840);
+            background-color: #f2f2f2;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            &__inner {
+                width: 100%;
+                height: 100%;
+                max-width: rem(1580);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 auto;
+                padding: rem(106) rem(60) 0;
+            }
+            &__category {
+                width: fit-content;
+                margin-bottom: rem(15);
+                padding: rem(8);
+                border-radius: rem(5);
+                background-color: $color-primary;
+                font-family: $font-nanum-square;
+                font-size: rem(16);
+                line-height: 1;
+                color: $color-white;
+            }
+            &__title {
+                font-family: $font-nanum-square;
+                font-weight: 800;
+                font-size: rem(70);
+                line-height: lh(86);
+                color: $color-white;
+            }
+            &__title--sub {
+                font-family: $font-nanum-gothic;
+                font-weight: 400;
+                font-size: rem(40);
+                line-height: lh(56);
+            }
+            &__desc {
+                margin-bottom: rem(107);
+                font-family: $font-nanum-square;
+                font-size: rem(24);
+                line-height: lh(40);
+                color: $color-white;
+            }
+            &__link {
+                max-width: rem(160);
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                padding: rem(12) 0;
+                border-bottom: rem(2) solid $color-white;
+                &:hover {
+                    .swiper-slide__link--text {
+                        color: $color-primary;
+                    }
+                }
+                &--text {
+                    font-family: $font-nanum-square;
+                    font-weight: 700;
+                    font-size: rem(18);
+                    line-height: 1;
+                    color: $color-white;
+                    transition: color 0.3s ease;
+                }
+                &--icon {
+                    width: rem(30);
+                    height: rem(12);
+                    margin-bottom: rem(2);
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+    &__controls {
+        width: 100%;
+        max-width: rem(1580);
+        margin: 0 auto;
+        padding: 0 rem(60);
+        display: flex;
+        align-items: center;
+        gap: 0 rem(15);
+        position: absolute;
+        top: rem(224);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9;
+    }
+    &__num {
+        font-family: $font-nanum-square;
+        font-weight: 700;
+        font-size: rem(14);
+        line-height: 1;
+        color: $color-white;
+        &--current {
+            color: $color-secondary;
+        }
+    }
+    &__progress {
+        width: rem(120);
+        height: rem(2);
+        background-color: #ebebeb;
+        position: relative;
+        &-bar {
+            width: 33.3333%;
+            height: 100%;
+            background-color: $color-secondary;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    &__btns {
+        display: flex;
+        gap: 0 rem(15);
+    }
+    &__side {
+        width: fit-content;
+        position: absolute;
+        top: 50%;
+        right: rem(80);
+        transform: translateY(-50%);
+        z-index: 9;
+    }
+    .btn {
+        &.btn-slide {
+            width: rem(22);
+            height: rem(42);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                svg {
+                    fill: $color-primary;
+                }
+            }
+            svg {
+                fill: $color-white;
+                transition: fill 0.3s ease;
+            }
+        }
+        &.btn-slide--prev,
+        &.btn-slide--next {
+            svg {
+                width: rem(12);
+                height: rem(12);
+            }
+        }
+        &.btn-slide--toggle {
+            &.playing {
+                .btn__icon--play {
+                    display: none;
+                }
+                .btn__icon--pause {
+                    display: initial;
+                }
+            }
+            &.paused {
+                .btn__icon--play {
+                    display: initial;
+                }
+                .btn__icon--pause {
+                    display: none;
+                }
+            }
+            svg {
+                width: rem(8);
+                height: rem(12);
+            }
+        }
+    }
+}
+
+.side-list {
+    &__link {
+        width: rem(220);
+        height: rem(50);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem(5) rem(10) rem(5) rem(2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        &:hover {
+            .side-list__text {
+                color: $color-primary;
+            }
+        }
+    }
+    &__text {
+        font-family: $font-nanum-square;
+        font-weight: 700;
+        font-size: rem(16);
+        line-height: 1;
+        color: $color-white;
+        position: relative;
+        bottom: rem(-2);
+        transition: color 0.3s ease;
+    }
+    &__icon {
+        width: rem(22);
+    }
+}
+
+// Info 섹션
+.info {
+    padding: 0 rem(60);
+    margin-bottom: rem(74);
+    &__inner {
+        max-width: rem(1580);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 rem(15);
+        margin: 0 auto;
+    }
+    &__list {
+        flex: 1;
+        padding: rem(50) 0;
+        border-bottom: rem(3) solid $color-black;
+    }
+    &__item {
+        display: flex;
+        align-items: flex-end;
+        gap: 0 rem(20);
+        font-family: $font-nanum-square;
+        color: $color-black;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+        &:nth-child(1) {
+            .info__title {
+                background-image: url(../images/main/time-calendar.png);
+                background-size: rem(37);
+                background-position: 0% 50%;
+            }
+        }
+        &:nth-child(2) {
+            .info__title {
+                background-image: url(../images/main/card.png);
+                background-size: rem(31);
+                background-position: rem(6) 50%;
+            }
+        }
+    }
+    &__title {
+        padding-left: rem(47);
+        background-repeat: no-repeat;
+        font-weight: 800;
+        font-size: rem(28);
+        line-height: lh(38);
+        position: relative;
+    }
+    &__desc {
+        font-size: rem(18);
+        line-height: lh(28);
+    }
+    &__link {
+        width: rem(130);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        padding: rem(59) 0;
+        border-bottom: rem(3) solid $color-black;
+        font-family: $font-nanum-square;
+        font-weight: 800;
+        font-size: rem(28);
+        line-height: lh(34);
+        color: $color-black;
+        transition: all 0.3s ease;
+        &:hover {
+            border-bottom-color: $color-secondary;
+            color: $color-secondary;
+        }
+    }
+}
+
+// 공통 섹션
+.main-common {
+    padding: 0 rem(60);
+    margin-bottom: rem(74);
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__inner {
+        max-width: rem(1580);
+        margin: 0 auto;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: rem(34);
+    }
+    &__title {
+        font-family: $font-nanum-square;
+        font-weight: 700;
+        font-size: rem(34);
+        line-height: lh(46);
+    }
+    &__content {
+        margin-bottom: rem(60);
+        .swiper-slide {
+            width: rem(380);
+            margin-right: rem(18);
+            &__inner {
+                display: block;
+                &:hover {
+                    .swiper-slide__title {
+                        color: $color-primary;
+                    }
+                }
+            }
+            &__thumb {
+                height: rem(460);
+                margin-bottom: rem(20);
+                background-color: #f2f2f2;
+            }
+            &__title {
+                margin-bottom: rem(10);
+                font-family: $font-nanum-square;
+                font-weight: 700;
+                font-size: rem(20);
+                line-height: lh(30);
+                color: $color-black;
+                transition: color 0.3s ease;
+            }
+            &__date {
+                font-family: $font-nanum-square;
+                font-size: rem(16);
+                line-height: lh(26);
+                color: $color-gray-500;
+            }
+        }
+    }
+    &__controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 rem(24);
+    }
+    &__progress {
+        width: 100%;
+        max-width: rem(1220);
+        height: rem(3);
+        background-color: #eeeeee;
+        position: relative;
+        &-bar {
+            width: 33.3333%;
+            height: 100%;
+            background-color: $color-black;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    &__btns {
+        display: flex;
+        .btn {
+            &.btn-slide {
+                width: rem(41);
+                height: rem(47);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover {
+                    svg {
+                        fill: $color-primary;
+                    }
+                }
+                svg {
+                    width: rem(9);
+                    height: rem(15);
+                    fill: $color-black;
+                    transition: fill 0.3s ease;
+                }
+                &.btn-slide--prev {
+                    margin-right: 1px;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        width: 1px;
+                        height: rem(12);
+                        background-color: #dddddd;
+                        position: absolute;
+                        top: 50%;
+                        right: -1px;
+                        transform: translateY(-50%);
+                    }
+                }
+                &.btn-slide--toggle {
+                    &:hover {
+                        svg {
+                            fill: $color-primary;
+                        }
+                    }
+                    svg {
+                        width: rem(11);
+                        height: rem(15);
+                        fill: $color-black;
+                        transition: fill 0.3s ease;
+                    }
+                    &.playing {
+                        .btn__icon--pause {
+                            display: initial;
+                        }
+                        .btn__icon--play {
+                            display: none;
+                        }
+                    }
+                    &.paused {
+                        .btn__icon--play {
+                            display: initial;
+                        }
+                        .btn__icon--pause {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 미디어 쿼리
+@media (max-width: 1100px) {
+    .side-list {
+        display: none;
+    }
+    .info {
+        &__inner {
+            justify-content: flex-end;
+        }
+        &__list {
+            flex: auto;
+            width: 100%;
+        }
+    }
+}

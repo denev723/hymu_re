@@ -12,8 +12,8 @@ $font-main: $font-nanum-gothic;
 
 $color-primary: #c99867;
 $color-primary-hover: color.scale(#c99867, $lightness: -15%);
-$color-secondary: #06b2ea;
-$color-secondary-hover: color.scale(#06b2ea, $lightness: -10%);
+$color-secondary: #ffcc00;
+$color-secondary-hover: color.scale(#ffcc00, $lightness: -10%);
 $color-success: #5cb85c;
 $color-danger: #d9534f;
 $color-warning: #f0ad4e;
@@ -33,6 +33,7 @@ $color-gray-100: #eeeeee;
 $color-gray-200: #dddddd;
 $color-gray-300: #cccccc;
 $color-gray-400: #888888;
+$color-gray-500: #999999;
 $color-gray-900: #111111;
 $color-orange: #ff4e00;
 $color-blue-800: #240ef0;

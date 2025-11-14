@@ -3,9 +3,9 @@
 
 .site-footer {
     &__inner {
-        max-width: rem(1580);
+        max-width: rem(1700);
         margin: 0 auto;
-        padding: 0 rem(20);
+        padding: 0 rem(60);
     }
     &__content {
         padding: rem(50) 0 rem(75);
@@ -33,19 +33,17 @@
         }
     }
     &__info {
+        * {
+            font-family: $font-nanum-square;
+            font-size: rem(16);
+            line-height: lh(28);
+        }
         &-wrap {
             display: flex;
             gap: 0 rem(16);
         }
         &-title {
-            font-family: $font-nanum-square;
-            font-size: rem(16);
-            line-height: lh(28);
-        }
-        &-desc {
-            font-family: $font-nanum-square;
-            font-size: rem(16);
-            line-height: lh(28);
+            margin-bottom: rem(10);
         }
     }
     &__copyright {
@@ -58,6 +56,7 @@
 }
 
 .footer-menu {
+    padding: 0 rem(20);
     border-top: rem(3) solid $color-black;
     border-bottom: 1px solid $color-black;
     font-size: 0;
@@ -83,6 +82,61 @@
         transition: color 0.3s ease;
         &:hover {
             color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .site-footer {
+        &__brand {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        &__inner {
+            padding: 0 rem(20);
+        }
+        &__content {
+            padding: rem(25) 0 rem(40);
+        }
+        &__row {
+            &:not(:last-child) {
+                margin-bottom: rem(17);
+            }
+            &.site-footer__row--flex {
+                gap: rem(10) rem(15);
+            }
+        }
+        &__brand {
+            font-size: rem(18);
+            line-height: lh(28);
+        }
+        &__info {
+            * {
+                font-size: rem(12);
+                line-height: lh(20);
+            }
+            &-wrap {
+                gap: 0 rem(16);
+            }
+            &-title {
+                margin-bottom: rem(5);
+            }
+        }
+        &__copyright {
+            padding: rem(15) 0 rem(48);
+            font-size: rem(12);
+        }
+    }
+
+    .footer-menu {
+        padding: 0 rem(10);
+        &__link {
+            padding: rem(18) rem(16);
+            font-size: rem(14);
         }
     }
 }

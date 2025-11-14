@@ -1,7 +1,8 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-.visual {
-    height: rem(840);
-    background-color: gray;
+.site-body {
+    &--main {
+        padding-bottom: rem(70);
+    }
 }
