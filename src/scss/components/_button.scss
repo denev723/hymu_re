@@ -22,4 +22,47 @@
             transition: fill 0.3s ease;
         }
     }
+    &.btn-close {
+        &--1 {
+            width: rem(70);
+            height: rem(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                svg {
+                    fill: $color-primary;
+                }
+            }
+            svg {
+                width: rem(35);
+                height: rem(35);
+                fill: $color-black;
+                transition: fill 0.3s ease;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .btn {
+        &.btn-more {
+            width: rem(36);
+            height: rem(34);
+            svg {
+                width: rem(23);
+                height: rem(22);
+            }
+        }
+        &.btn-close {
+            &--1 {
+                width: rem(50);
+                height: rem(50);
+                svg {
+                    width: rem(25);
+                    height: rem(25);
+                }
+            }
+        }
+    }
 }

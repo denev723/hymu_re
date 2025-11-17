@@ -6,3 +6,11 @@
         padding-bottom: rem(70);
     }
 }
+
+@media (max-width: 768px) {
+    .site-body {
+        &--main {
+            padding-bottom: rem(45);
+        }
+    }
+}
