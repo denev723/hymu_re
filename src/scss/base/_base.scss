@@ -1,6 +1,21 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    &::before {
+        content: url("/resources/front/images/sub/snb-home-h.png");
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
 img {
     max-width: 100%;
 }
@@ -21,4 +36,8 @@ body {
 #wrap {
     overflow: hidden;
     position: relative;
+}
+
+.text--primary {
+    color: $color-primary !important;
 }

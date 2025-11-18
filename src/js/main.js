@@ -362,4 +362,102 @@ $(document).ready(function () {
       }, 300);
     });
   }
+
+  // Sub Notice Swiper 초기화
+  const $subNoticeSwiperEl = $("#subNoticeSwiper");
+  if ($subNoticeSwiperEl.length) {
+    const subNoticeSwiper = new Swiper("#subNoticeSwiper", {
+      direction: "vertical",
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      speed: 800,
+      slidesPerView: 1,
+      spaceBetween: 0,
+    });
+  }
+
+  // SNB 메뉴 토글 기능
+  const $snb = $(".snb");
+  if ($snb.length) {
+    const $snbMenus = $snb.find(".snb__menu");
+    const $snbLinks = $snbMenus.find("> .snb__link");
+
+    // 화면 너비 체크 함수
+    const isMobile = () => {
+      return window.innerWidth <= 768;
+    };
+
+    // 바깥 영역 클릭 시 active 클래스 제거
+    const handleOutsideClick = (event) => {
+      if (isMobile()) {
+        const $target = $(event.target);
+        if (!$target.closest(".snb__menu").length) {
+          $snbMenus.removeClass("active");
+        }
+      }
+    };
+
+    // 데스크톱: 마우스 오버/아웃 이벤트
+    const handleDesktopEvents = () => {
+      $snbMenus.off("mouseenter mouseleave");
+      $snbMenus.on("mouseenter", function () {
+        if (!isMobile()) {
+          const $menu = $(this);
+          $snbMenus.not($menu).removeClass("active");
+          $menu.addClass("active");
+        }
+      });
+
+      $snbMenus.on("mouseleave", function () {
+        if (!isMobile()) {
+          $(this).removeClass("active");
+        }
+      });
+    };
+
+    // 모바일: 클릭 이벤트
+    const handleMobileEvents = () => {
+      $snbLinks.off("click");
+      $snbLinks.on("click", function (event) {
+        if (isMobile()) {
+          event.preventDefault();
+          const $menu = $(this).closest(".snb__menu");
+          const isActive = $menu.hasClass("active");
+          $snbMenus.removeClass("active");
+          if (!isActive) {
+            $menu.addClass("active");
+          }
+        }
+      });
+
+      // 바깥 영역 클릭 감지
+      $(document).off("click.snb");
+      $(document).on("click.snb", handleOutsideClick);
+    };
+
+    // 초기 이벤트 설정
+    if (isMobile()) {
+      handleMobileEvents();
+    } else {
+      handleDesktopEvents();
+    }
+
+    // 리사이즈 시 이벤트 재설정
+    let snbResizeTimer = null;
+    $(window).on("resize", function () {
+      clearTimeout(snbResizeTimer);
+      snbResizeTimer = setTimeout(function () {
+        if (isMobile()) {
+          $snbMenus.removeClass("active");
+          handleMobileEvents();
+        } else {
+          $(document).off("click.snb");
+          handleDesktopEvents();
+        }
+      }, 150);
+    });
+  }
 });

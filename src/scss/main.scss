@@ -14,4 +14,8 @@
 @use "components/button" as *;
 
 // pages
-@use "pages/main" as *;
+@use "pages/main/main" as *;
+@use "pages/sub/sub-common" as *;
+
+@use "pages/sub/greeting" as *;
+@use "pages/sub/history" as *;
