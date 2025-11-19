@@ -29,7 +29,7 @@
             font-weight: 700;
         }
     }
-    &__title--year {
+    &__title {
         width: rem(85);
         flex-shrink: 0;
         font-weight: 700;
@@ -43,7 +43,7 @@
             font-size: rem(14);
             line-height: lh(18);
         }
-        &__title--date {
+        &__title {
             width: rem(190);
             flex-shrink: 0;
             color: $color-primary;

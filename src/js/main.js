@@ -460,4 +460,32 @@ $(document).ready(function () {
       }, 150);
     });
   }
+
+  // Facility 아이템 마우스 오버 기능
+  const $facilityItems = $(".facility__item");
+  const $facilityImages = $(".img-wrap img");
+
+  if ($facilityItems.length && $facilityImages.length) {
+    $facilityItems.on("mouseenter", function () {
+      const $item = $(this);
+      const itemText = $item.text().trim();
+
+      // 모든 이미지에서 active 클래스 제거
+      $facilityImages.removeClass("active");
+
+      // data-facility 값이 일치하는 이미지 찾기
+      $facilityImages.each(function () {
+        const $img = $(this);
+        const facilityData = $img.attr("data-facility");
+
+        if (facilityData && facilityData === itemText) {
+          $img.addClass("active");
+        }
+      });
+
+      // facility__item에도 active 클래스 추가
+      $facilityItems.removeClass("active");
+      $item.addClass("active");
+    });
+  }
 });

@@ -1,0 +1,104 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.map-container {
+    padding-top: rem(410);
+    position: relative;
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+}
+
+.info-list {
+    padding: rem(17) rem(10);
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+    border-bottom: 1px solid #e6e3e0;
+    &__item {
+        width: rem(485);
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(6);
+    }
+    &__title {
+        flex-shrink: 0;
+        display: inline-block;
+        padding: rem(6);
+        border-radius: rem(4);
+        border: 1px solid $color-primary;
+        font-size: rem(12);
+        line-height: 1;
+        color: $color-primary;
+    }
+    &__desc {
+        flex: 1;
+        font-size: rem(14);
+        line-height: lh(24);
+    }
+}
+
+.transit-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20) rem(10);
+    padding: rem(35) rem(20);
+    border-bottom: 1px solid #555555;
+    &__item {
+        width: rem(475);
+    }
+    &__title {
+        display: inline-block;
+        margin-bottom: rem(25);
+        font-size: rem(20);
+        line-height: lh(30);
+        .border {
+            display: inline-block;
+            padding-bottom: rem(5);
+            border-bottom: rem(2) solid #938776;
+        }
+        small {
+            font-size: rem(14);
+            line-height: lh(30);
+            color: #777777;
+        }
+    }
+    .content-list {
+        &__item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(15);
+            margin-bottom: rem(10);
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &__title {
+            display: flex;
+            gap: 0 rem(10);
+            .content-list__text {
+                display: inline-block;
+                font-size: rem(14);
+                line-height: lh(26);
+                &--round {
+                    display: inline-block;
+                    padding: rem(6) rem(15);
+                    margin-left: 0;
+                    border-radius: rem(999);
+                    font-size: rem(14);
+                    line-height: 1;
+                    color: $color-white;
+                }
+            }
+        }
+        &__desc {
+            font-size: rem(14);
+            line-height: lh(26);
+        }
+    }
+}

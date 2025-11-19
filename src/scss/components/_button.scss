@@ -2,9 +2,31 @@
 @use "../abstracts/mixins" as *;
 
 .btn {
+    display: inline-block;
+    padding: rem(10);
+    border-radius: rem(3);
+    font-size: rem(14);
+    line-height: rem(16);
+    &.btn-primary {
+        background-color: $color-primary;
+        color: $color-white;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: $color-primary-hover;
+        }
+    }
+    &.btn-default {
+        background-color: $color-default;
+        color: $color-white;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: $color-default-hover;
+        }
+    }
     &.btn-more {
         width: rem(46);
         height: rem(50);
+        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,6 +51,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 0;
             &:hover {
                 svg {
                     fill: $color-primary;

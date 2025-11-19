@@ -12,6 +12,7 @@
 
 // components
 @use "components/button" as *;
+@use "components/table" as *;
 
 // pages
 @use "pages/main/main" as *;
@@ -19,3 +20,8 @@
 
 @use "pages/sub/greeting" as *;
 @use "pages/sub/history" as *;
+@use "pages/sub/organization" as *;
+@use "pages/sub/facility" as *;
+@use "pages/sub/operation" as *;
+@use "pages/sub/viewing" as *;
+@use "pages/sub/location" as *;
