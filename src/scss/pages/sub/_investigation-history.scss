@@ -1,0 +1,101 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.conts-investigation-history {
+    display: flex;
+    .conts__bg {
+        width: rem(315);
+    }
+    .conts__body {
+        flex: 1;
+    }
+    .conts-tab {
+        display: flex;
+        justify-content: center;
+        gap: 0 1px;
+        border-top: rem(2) solid #555555;
+        border-bottom: 1px solid #555555;
+        &__item {
+            position: relative;
+            &:not(:last-child) {
+                &::after {
+                    content: "";
+                    width: 1px;
+                    height: rem(18);
+                    background-color: #c8c8c8;
+                    position: absolute;
+                    top: 50%;
+                    right: -1px;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        &__link {
+            display: block;
+            padding: rem(30);
+            font-size: rem(20);
+            line-height: 1;
+            color: #c8c8c8;
+            transition: color 0.3s ease;
+            &:hover {
+                color: $color-black;
+            }
+            &.active {
+                color: $color-black;
+            }
+        }
+    }
+    .conts__image {
+        width: rem(318);
+        padding: rem(5);
+        background-color: $color-white;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+        position: absolute;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        img {
+            width: 100%;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+    .history-wrap {
+        display: none;
+        position: relative;
+        &.active {
+            display: block;
+        }
+    }
+    .history-list {
+        &__item {
+            &:last-child {
+                border-bottom: 1px solid #e6e3e0;
+            }
+            .btn-view {
+                width: rem(22);
+                height: rem(22);
+                display: inline-block;
+                margin-left: rem(3);
+                border-radius: rem(3);
+                background-image: url(../images/sub/mag-white.png);
+                background-size: rem(11);
+                background-repeat: no-repeat;
+                background-color: $color-primary;
+                background-position: 50%;
+                vertical-align: middle;
+                transition: background-color 0.3s ease;
+                cursor: pointer;
+                &:hover {
+                    background-color: $color-primary-hover;
+                }
+            }
+        }
+    }
+}

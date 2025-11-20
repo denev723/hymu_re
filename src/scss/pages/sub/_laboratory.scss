@@ -1,0 +1,18 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.conts-laboratory {
+    display: flex;
+    gap: rem(50) rem(20);
+    .conts__bg {
+        width: rem(275);
+        flex-shrink: 0;
+    }
+    .conts__body {
+        flex: 1;
+    }
+    .conts__desc {
+        font-size: rem(14);
+        line-height: lh(24);
+    }
+}

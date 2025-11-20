@@ -13,6 +13,7 @@
 // components
 @use "components/button" as *;
 @use "components/table" as *;
+@use "components/modal" as *;
 
 // pages
 @use "pages/main/main" as *;
@@ -25,3 +26,6 @@
 @use "pages/sub/operation" as *;
 @use "pages/sub/viewing" as *;
 @use "pages/sub/location" as *;
+@use "pages/sub/laboratory" as *;
+@use "pages/sub/antiquity" as *;
+@use "pages/sub/investigation-history" as *;

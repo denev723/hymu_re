@@ -488,4 +488,146 @@ $(document).ready(function () {
       $item.addClass("active");
     });
   }
+
+  // Modal 인터랙션
+  const $modal = $(".modal");
+  const $modalInner = $modal.find(".modal__inner");
+  const $modalContents = $modal.find(".modal-content");
+  const $modalOpenButtons = $("a.modal-open");
+  const $modalCloseButtons = $(".modal__close");
+
+  const openModal = (targetSelector) => {
+    if (!$modal.length) {
+      return;
+    }
+
+    $modal.addClass("active");
+    $modalContents.removeClass("active");
+
+    if (targetSelector) {
+      const $targetContent = $modalContents.filter(
+        `[data-item="${targetSelector}"]`
+      );
+      $targetContent.addClass("active");
+    }
+  };
+
+  const closeModal = () => {
+    if (!$modal.length) {
+      return;
+    }
+
+    $modal.removeClass("active");
+    $modalContents.removeClass("active");
+  };
+
+  if ($modalOpenButtons.length && $modal.length) {
+    $modalOpenButtons.on("click", function (event) {
+      event.preventDefault();
+      const target = $(this).attr("href");
+      openModal(target);
+    });
+  }
+
+  if ($modalCloseButtons.length && $modal.length) {
+    $modalCloseButtons.on("click", function (event) {
+      event.preventDefault();
+      closeModal();
+    });
+  }
+
+  if ($modal.length) {
+    $modal.on("click", function (event) {
+      if (
+        !$modalInner.is(event.target) &&
+        $modalInner.has(event.target).length === 0
+      ) {
+        closeModal();
+      }
+    });
+  }
+
+  // Investigation history tab 연동
+  const $contsTabLinks = $(".conts-tab__link");
+  const $historyWraps = $(".history-wrap");
+
+  if ($contsTabLinks.length && $historyWraps.length) {
+    $contsTabLinks.on("click", function (event) {
+      event.preventDefault();
+      const $link = $(this);
+      const target = $link.attr("href");
+
+      $contsTabLinks.removeClass("active");
+      $link.addClass("active");
+
+      $historyWraps.removeClass("active");
+
+      if (target) {
+        $historyWraps.filter(`[data-list="${target}"]`).addClass("active");
+      }
+    });
+  }
+
+  // Investigation history image preview (desktop)
+  const $historyButtons = $(".history-list .btn-view");
+  const isDesktopViewport = () => window.innerWidth > 768;
+
+  const hideImagePreview = ($wrap) => {
+    const $imageWrap = $wrap.find(".conts__image");
+
+    if ($imageWrap.length) {
+      $imageWrap.removeClass("active");
+      $imageWrap.css({ top: "", left: "" });
+      $imageWrap.find("img").removeClass("active");
+    }
+  };
+
+  if ($historyButtons.length) {
+    const GAP = 12;
+
+    $historyButtons.on("mouseenter", function () {
+      if (!isDesktopViewport()) {
+        return;
+      }
+
+      const $btn = $(this);
+      const dataItem = $btn.data("item");
+      const $wrap = $btn.closest(".history-wrap");
+      const $imageWrap = $wrap.find(".conts__image");
+
+      if (!$imageWrap.length) {
+        return;
+      }
+
+      const buttonOffset = $btn.offset();
+      const wrapOffset = $wrap.offset();
+      const buttonHeight = $btn.outerHeight();
+
+      const top = buttonOffset.top - wrapOffset.top + buttonHeight + GAP;
+      const left = buttonOffset.left - wrapOffset.left;
+
+      $imageWrap.css({ top, left }).addClass("active");
+
+      const $images = $imageWrap.find("img");
+      $images.removeClass("active");
+
+      if (dataItem) {
+        $images.filter(`[data-item="${dataItem}"]`).addClass("active");
+      }
+    });
+
+    $historyButtons.on("mouseleave", function () {
+      if (!isDesktopViewport()) {
+        return;
+      }
+
+      hideImagePreview($(this).closest(".history-wrap"));
+    });
+
+    $(window).on("resize.historyPreview", function () {
+      if (!isDesktopViewport()) {
+        $(".conts__image").removeClass("active").css({ top: "", left: "" });
+      }
+    });
+  }
 });

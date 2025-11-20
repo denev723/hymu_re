@@ -217,6 +217,9 @@
 
 .tab {
     margin: 0 auto rem(75);
+    &.tab--sub {
+        margin-top: rem(-25);
+    }
     &.tab--2 {
         max-width: rem(400);
         .tab__list {
@@ -271,9 +274,18 @@
         line-height: lh(26);
         text-align: center;
         color: #666666;
+        overflow: hidden;
         transition: color 0.3s ease;
         &:hover {
             color: $color-primary;
+        }
+        span {
+            width: 100%;
+            display: block;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
@@ -389,6 +401,7 @@
     }
 
     .tab {
+        max-width: rem(400);
         margin: 0 auto rem(45);
         &.tab--3,
         &.tab--4 {

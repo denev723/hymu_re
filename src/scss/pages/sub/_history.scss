@@ -28,6 +28,14 @@
         b {
             font-weight: 700;
         }
+        & > .content-list {
+            margin-top: rem(4);
+            .content-list__item {
+                font-size: rem(14);
+                line-height: lh(22);
+                margin-bottom: rem(6);
+            }
+        }
     }
     &__title {
         width: rem(85);
