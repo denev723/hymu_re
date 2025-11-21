@@ -1,0 +1,44 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.conts-sites {
+    .site-list {
+        &__item {
+            display: flex;
+            border-bottom: 1px solid #cbcbcb;
+            &:first-child {
+                border-top: rem(2) solid #555555;
+            }
+        }
+        &__title {
+            width: rem(170);
+            padding: rem(15) rem(10);
+            font-size: rem(18);
+            line-height: lh(28);
+        }
+        .museum-list {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            &__item {
+                width: 33.3333%;
+                border-bottom: 1px solid #eaeaea;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+            &__link {
+                display: block;
+                padding: rem(15);
+                font-size: rem(14);
+                line-height: lh(24);
+                word-break: break-all;
+                transition: all 0.3s ease;
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: rem(2);
+                }
+            }
+        }
+    }
+}

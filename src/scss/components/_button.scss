@@ -5,22 +5,37 @@
     display: inline-block;
     padding: rem(10);
     border-radius: rem(3);
+    border: 1px solid transparent;
     font-size: rem(14);
     line-height: rem(16);
     &.btn-primary {
+        border-color: $color-primary;
         background-color: $color-primary;
         color: $color-white;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
         &:hover {
+            border-color: $color-primary-hover;
             background-color: $color-primary-hover;
         }
     }
     &.btn-default {
+        border-color: $color-default;
         background-color: $color-default;
         color: $color-white;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
         &:hover {
+            border-color: $color-default-hover;
             background-color: $color-default-hover;
+        }
+    }
+    &.btn-outline {
+        border-color: #b3b3b3;
+        background-color: $color-white;
+        color: $color-black;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: #b3b3b3;
+            color: $color-white;
         }
     }
     &.btn-more {

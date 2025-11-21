@@ -60,10 +60,14 @@
     .img-list {
         max-width: rem(550);
         display: flex;
+        flex-wrap: wrap;
         gap: rem(5);
         margin: 0 auto;
         &__item {
             width: rem(180);
+            img {
+                display: block;
+            }
         }
     }
 }

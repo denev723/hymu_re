@@ -41,3 +41,35 @@ body {
 .text--primary {
     color: $color-primary !important;
 }
+
+.text--center {
+    text-align: center !important;
+}
+
+.text--left {
+    text-align: left !important;
+}
+
+.text--right {
+    text-align: right !important;
+}
+
+.dot-indent {
+    padding-left: rem(12);
+    text-indent: rem(-12);
+}
+
+.line-indent {
+    padding-left: rem(8);
+    text-indent: rem(-8);
+}
+
+.num-indent {
+    display: flex;
+    .num {
+        flex-shrink: 0;
+    }
+    .text {
+        flex: 1;
+    }
+}

@@ -113,22 +113,68 @@
     &.active {
         display: block;
     }
-    &__title {
+    .modal-content__title {
         margin-bottom: rem(5);
         font-size: rem(32);
         line-height: lh(42);
     }
-    &__summary {
+    .modal-content__summary {
         margin-bottom: rem(10);
         font-size: rem(14);
         line-height: lh(24);
     }
-    &__desc {
+    .modal-content__desc {
         margin-top: rem(20);
         font-size: rem(14);
         line-height: lh(24);
     }
     img {
         width: 100%;
+    }
+}
+
+.modal-content--flex {
+    height: 100%;
+    display: none;
+    gap: rem(20);
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &.active {
+        display: flex;
+    }
+    .modal-content__bg {
+        width: rem(200);
+    }
+    .modal-content__img {
+        background-color: $color-primary;
+        &:not(:has(img)) {
+            height: rem(280);
+        }
+        img {
+            display: block;
+        }
+    }
+    .modal-content__desc {
+        flex: 1;
+    }
+    .modal-content__title {
+        font-size: rem(24);
+        line-height: lh(34);
+        margin-bottom: rem(15);
+        color: $color-primary;
+    }
+    .modal-content__title--sub {
+        font-size: rem(16);
+        line-height: 1;
+        margin-bottom: rem(10);
+    }
+    .modal-content__text {
+        font-size: rem(14);
+        line-height: lh(24);
     }
 }

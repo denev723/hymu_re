@@ -445,11 +445,48 @@ $(document).ready(function () {
       handleDesktopEvents();
     }
 
+    // SNB 스크롤 고정 기능
+    let snbOriginalTop = null;
+    let isSnbFixed = false;
+
+    const initSnbScroll = () => {
+      if ($snb.length && $snb.is(":visible")) {
+        snbOriginalTop = $snb.offset().top;
+      }
+    };
+
+    const handleSnbScroll = () => {
+      if (!$snb.length || snbOriginalTop === null) {
+        return;
+      }
+
+      const scrollTop = $(window).scrollTop();
+
+      if (scrollTop > snbOriginalTop && !isSnbFixed) {
+        // SNB를 fixed로 변경
+        $snb.addClass("fixed");
+        isSnbFixed = true;
+      } else if (scrollTop <= snbOriginalTop && isSnbFixed) {
+        // SNB를 원상태로 복구
+        $snb.removeClass("fixed");
+        isSnbFixed = false;
+      }
+    };
+
+    // 초기 SNB 위치 설정
+    initSnbScroll();
+
+    // 스크롤 이벤트 등록
+    $(window).on("scroll.snb", handleSnbScroll);
+
     // 리사이즈 시 이벤트 재설정
     let snbResizeTimer = null;
     $(window).on("resize", function () {
       clearTimeout(snbResizeTimer);
       snbResizeTimer = setTimeout(function () {
+        // SNB 위치 재계산
+        initSnbScroll();
+
         if (isMobile()) {
           $snbMenus.removeClass("active");
           handleMobileEvents();
@@ -492,7 +529,7 @@ $(document).ready(function () {
   // Modal 인터랙션
   const $modal = $(".modal");
   const $modalInner = $modal.find(".modal__inner");
-  const $modalContents = $modal.find(".modal-content");
+  const $modalContents = $modal.find(".modal-content, .modal-content--flex");
   const $modalOpenButtons = $("a.modal-open");
   const $modalCloseButtons = $(".modal__close");
 
@@ -627,6 +664,38 @@ $(document).ready(function () {
     $(window).on("resize.historyPreview", function () {
       if (!isDesktopViewport()) {
         $(".conts__image").removeClass("active").css({ top: "", left: "" });
+      }
+    });
+  }
+
+  // 범용 탭 기능 (conts-tab__link)
+  const $contsTabLinksGeneral = $(".conts-tab__link");
+  const $contsBodyInner = $(".conts__body-inner");
+  const $contsBottom = $(".conts__bottom");
+
+  if (
+    $contsTabLinksGeneral.length &&
+    ($contsBodyInner.length || $contsBottom.length)
+  ) {
+    $contsTabLinksGeneral.on("click", function (event) {
+      event.preventDefault();
+      const $link = $(this);
+      const target = $link.attr("href"); // #tab-1, #tab-2
+
+      // 링크 active 토글
+      $contsTabLinksGeneral.removeClass("active");
+      $link.addClass("active");
+
+      // body-inner 전환
+      if ($contsBodyInner.length) {
+        $contsBodyInner.removeClass("active");
+        $contsBodyInner.filter(`[data-tab="${target}"]`).addClass("active");
+      }
+
+      // bottom 전환
+      if ($contsBottom.length) {
+        $contsBottom.removeClass("active");
+        $contsBottom.filter(`[data-tab="${target}"]`).addClass("active");
       }
     });
   }

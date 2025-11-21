@@ -82,6 +82,15 @@
     border-bottom: 1px solid #cccccc;
     position: relative;
     z-index: 9;
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
     &__inner {
         display: flex;
         margin: 0 -1px;
