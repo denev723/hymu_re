@@ -9,23 +9,16 @@
         font-size: rem(14);
         line-height: lh(24);
         vertical-align: middle;
-        border-bottom: 1px solid #eaeaea;
         &:nth-child(1),
         &:nth-child(2) {
             color: #888888;
         }
-        &.last {
-            border-bottom: transparent;
+        &.bottom {
+            border-bottom: 1px solid #eaeaea;
         }
         &.bg {
             background-color: #f4f4f4;
             text-align: center;
-        }
-        p {
-            margin-bottom: rem(10);
-            &:last-child {
-                margin-bottom: 0;
-            }
         }
     }
 }
@@ -70,5 +63,11 @@
                 border-bottom-color: #444444;
             }
         }
+    }
+}
+
+@media (max-width: 1120px) {
+    .table-people {
+        border-top: 1px solid #eaeaea;
     }
 }

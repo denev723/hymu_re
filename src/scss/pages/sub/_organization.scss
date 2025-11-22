@@ -40,3 +40,18 @@
         line-height: lh(20);
     }
 }
+
+@media (max-width: 1120px) {
+    .org-list {
+        &__item {
+            flex-direction: column;
+            gap: rem(20) 0;
+        }
+        .table-wrap {
+            width: 100%;
+        }
+    }
+    .dep {
+        width: 100%;
+    }
+}

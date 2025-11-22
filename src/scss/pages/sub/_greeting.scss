@@ -55,3 +55,15 @@
         line-height: lh(28);
     }
 }
+
+@media (max-width: 1120px) {
+    .conts-greeting {
+        flex-direction: column;
+        .conts__bg {
+            width: 100%;
+        }
+        .conts__body {
+            flex: auto;
+        }
+    }
+}

@@ -263,6 +263,7 @@
             margin-left: 0;
         }
         &.tab__item--active {
+            border-color: #938776;
             .tab__link {
                 background-color: #938776;
                 color: $color-white;
@@ -302,6 +303,14 @@
 @media (max-width: 1120px) {
     .tab {
         max-width: rem(800);
+        &__item {
+            &:nth-child(5n + 1) {
+                margin-left: -1px;
+            }
+            &:nth-child(4n + 1) {
+                margin-left: 0;
+            }
+        }
     }
 }
 
@@ -318,7 +327,7 @@
             padding-left: 1px;
         }
         &__item {
-            &:nth-child(5n + 1) {
+            &:nth-child(4n + 1) {
                 margin-left: -1px;
             }
             &:nth-child(3n + 1) {
