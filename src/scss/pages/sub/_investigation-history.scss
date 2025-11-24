@@ -102,13 +102,83 @@
 
 @media (max-width: 1120px) {
     .conts-investigation-history {
+        max-width: rem(450);
         flex-direction: column;
         gap: rem(50) 0;
+        margin: 0 auto;
         .conts__bg {
             width: 100%;
         }
         .conts__body {
             flex: auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .conts-investigation-history {
+        gap: rem(30) 0;
+        .conts__bg {
+            img {
+                width: rem(202);
+            }
+        }
+        .conts-tab {
+            flex-direction: column;
+            justify-content: initial;
+            gap: 1px 0;
+            &__item {
+                &:not(:last-child) {
+                    &::after {
+                        width: 100%;
+                        height: 1px;
+                        top: auto;
+                        bottom: -1px;
+                        right: auto;
+                        left: 0;
+                        transform: none;
+                    }
+                }
+            }
+            &__link {
+                padding: rem(20) rem(10);
+                font-size: rem(16);
+                text-align: center;
+            }
+        }
+        .conts__image {
+            width: rem(318);
+            padding: rem(5);
+            background-color: $color-white;
+            box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            img {
+                width: 100%;
+                display: none;
+                &.active {
+                    display: block;
+                }
+            }
+        }
+        .history-list {
+            &__item {
+                .content-list {
+                    margin-top: 0;
+                }
+            }
+            &__title {
+                margin-bottom: rem(15);
+            }
+            .content-list {
+                margin-top: 0;
+            }
         }
     }
 }

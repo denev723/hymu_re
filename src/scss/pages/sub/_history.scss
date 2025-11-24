@@ -76,3 +76,58 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .conts-history {
+        gap: rem(30) 0;
+        .conts__bg {
+            img {
+                width: rem(150);
+            }
+        }
+    }
+
+    .history-list {
+        &__item {
+            flex-direction: column;
+            padding: rem(20) 0;
+            & > .content-list {
+                margin-top: rem(4);
+                .content-list__item {
+                    font-size: rem(14);
+                    line-height: lh(22);
+                    margin-bottom: rem(6);
+                }
+            }
+        }
+        &__title {
+            width: 100%;
+            flex-shrink: initial;
+            font-size: rem(22);
+        }
+        .date-list {
+            margin-top: rem(19);
+            &__title {
+                width: rem(160);
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .history-list {
+        .date-list {
+            &__item {
+                flex-direction: column;
+                margin-bottom: rem(10);
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            &__title {
+                width: 100%;
+                margin-bottom: rem(8);
+            }
+        }
+    }
+}

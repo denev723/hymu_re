@@ -87,3 +87,44 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .conts-antiquity {
+        gap: rem(30) 0;
+        .conts__bg {
+            img {
+                width: rem(130);
+            }
+        }
+    }
+
+    .border-row {
+        padding: rem(25) 0;
+        &__title {
+            margin-bottom: rem(15);
+            font-size: rem(16);
+            line-height: lh(26);
+        }
+        &__content {
+            & ~ .img-list {
+                margin-top: rem(15);
+            }
+        }
+
+        .img-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(15);
+            &__inner {
+                width: rem(200);
+                height: rem(140);
+                &::before {
+                    width: rem(24);
+                    height: rem(24);
+                    background-size: rem(24);
+                    top: calc(100% - rem(34));
+                }
+            }
+        }
+    }
+}

@@ -53,3 +53,14 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .conts-series {
+        gap: rem(30) 0;
+        .conts__bg {
+            img {
+                width: rem(202);
+            }
+        }
+    }
+}

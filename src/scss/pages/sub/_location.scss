@@ -27,6 +27,7 @@
         gap: rem(6);
     }
     &__title {
+        height: fit-content;
         flex-shrink: 0;
         display: inline-block;
         padding: rem(6);
@@ -99,6 +100,84 @@
         &__desc {
             font-size: rem(14);
             line-height: lh(26);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        padding-top: rem(260);
+    }
+
+    .info-list {
+        padding: rem(17) 0;
+        flex-direction: column;
+        flex-wrap: initial;
+        gap: rem(20) 0;
+        border-bottom: 1px solid #e6e3e0;
+        &__item {
+            width: 100%;
+            flex-direction: column;
+            gap: rem(5);
+        }
+        &__title {
+            width: fit-content;
+        }
+        &__desc {
+            flex: auto;
+        }
+    }
+
+    .transit-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(20) rem(10);
+        padding: rem(25) rem(10);
+        border-bottom: 1px solid #555555;
+        &__item {
+            width: 100%;
+        }
+        &__title {
+            margin-bottom: rem(15);
+            font-size: rem(18);
+            line-height: lh(28);
+            small {
+                font-size: rem(12);
+                line-height: lh(28);
+            }
+        }
+        .content-list {
+            &__item {
+                display: flex;
+                flex-wrap: wrap;
+                gap: rem(10) rem(15);
+                margin-bottom: rem(10);
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            &__title {
+                display: flex;
+                gap: 0 rem(10);
+                .content-list__text {
+                    display: inline-block;
+                    font-size: rem(14);
+                    line-height: lh(26);
+                    &--round {
+                        display: inline-block;
+                        padding: rem(6) rem(15);
+                        margin-left: 0;
+                        border-radius: rem(999);
+                        font-size: rem(14);
+                        line-height: 1;
+                        color: $color-white;
+                    }
+                }
+            }
+            &__desc {
+                font-size: rem(14);
+                line-height: lh(26);
+            }
         }
     }
 }

@@ -16,3 +16,19 @@
         line-height: lh(24);
     }
 }
+
+@media (max-width: 768px) {
+    .conts-laboratory {
+        flex-direction: column;
+        gap: rem(30) 0;
+        .conts__bg {
+            width: 100%;
+            img {
+                width: rem(202);
+            }
+        }
+        .conts__body {
+            flex: auto;
+        }
+    }
+}

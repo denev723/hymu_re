@@ -42,3 +42,31 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .conts-sites {
+        .site-list {
+            &__item {
+                display: flex;
+                flex-direction: column;
+            }
+            &__title {
+                width: 100%;
+                padding: rem(25) rem(10) rem(20);
+                font-weight: 700;
+                font-size: rem(16);
+                line-height: lh(26);
+            }
+            .museum-list {
+                flex: auto;
+                border-top: 1px solid #eaeaea;
+                &__item {
+                    width: 50%;
+                }
+                &__link {
+                    padding: rem(10);
+                }
+            }
+        }
+    }
+}

@@ -185,3 +185,97 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .conts-introduce {
+        .conts-tab {
+            margin-bottom: rem(25);
+            &__link {
+                padding: rem(13) rem(15);
+                font-size: rem(14);
+            }
+        }
+        .img-list {
+            flex-direction: column;
+            align-items: center;
+            gap: rem(15) 0;
+            margin: 0 auto rem(20);
+        }
+        .img-list--1 {
+            flex-direction: column;
+            align-items: center;
+            gap: rem(20);
+            padding-bottom: rem(20);
+            margin: 0 auto rem(20);
+            .img-list__thumb {
+                margin-bottom: rem(15);
+            }
+            .img-list__title {
+                margin-bottom: 0;
+                font-size: rem(16);
+                line-height: lh(26);
+            }
+        }
+        .conts-row {
+            margin-bottom: rem(35);
+            .conts-row__summary {
+                margin-bottom: rem(20);
+                br {
+                    display: none;
+                }
+            }
+            .conts-row__title {
+                font-size: rem(18);
+                line-height: lh(28);
+            }
+            .table-wrap,
+            .border-list,
+            .border-list--1 {
+                & ~ .conts-row__content {
+                    margin-top: rem(10);
+                }
+            }
+            .table-wrap {
+                overflow: scroll;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .table-border--1 {
+                    min-width: rem(540);
+                }
+            }
+        }
+        .conts__bottom {
+            flex-direction: column;
+            justify-content: initial;
+            gap: rem(6) 0;
+            padding-top: rem(25);
+            .btn {
+                width: fit-content;
+            }
+        }
+        .border-list {
+            &--1 {
+                border-top: rem(2) solid #444444;
+                .border-list__item {
+                    flex-direction: column;
+                    gap: rem(10) 0;
+                    padding: rem(15) 0;
+                }
+                .border-list__title {
+                    width: 100%;
+                    flex-shrink: initial;
+                    &::after {
+                        display: none;
+                    }
+                }
+                .border-list__content {
+                    flex: auto;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

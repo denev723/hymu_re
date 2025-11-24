@@ -47,7 +47,7 @@
     display: flex;
     align-items: center;
     gap: 0 rem(18);
-    &__img {
+    img {
         width: rem(144);
     }
     &__text {
@@ -59,11 +59,53 @@
 @media (max-width: 1120px) {
     .conts-greeting {
         flex-direction: column;
+        flex-wrap: nowrap;
         .conts__bg {
+            min-width: auto;
+            max-width: none;
             width: 100%;
+            padding: 0;
         }
         .conts__body {
             flex: auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .conts-greeting {
+        gap: rem(30) 0;
+        padding-top: rem(35);
+        .conts__bg {
+            img {
+                width: rem(150);
+            }
+        }
+        .conts__summary {
+            padding-bottom: rem(15);
+            margin-bottom: rem(15);
+            font-size: rem(22);
+            line-height: lh(32);
+        }
+        .conts__desc {
+            padding-bottom: rem(20);
+            margin-bottom: rem(25);
+            font-size: rem(14);
+            line-height: lh(24);
+            &::before {
+                width: rem(40);
+            }
+        }
+    }
+
+    .signature {
+        gap: 0 rem(13);
+        img {
+            width: rem(104);
+        }
+        &__text {
+            font-size: rem(16);
+            line-height: lh(26);
         }
     }
 }

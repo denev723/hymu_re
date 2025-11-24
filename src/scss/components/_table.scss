@@ -33,6 +33,7 @@
             border: 1px solid #dcdcdc;
             font-size: rem(14);
             line-height: lh(24);
+            vertical-align: middle;
         }
         th {
             background-color: #f4f4f4;
@@ -69,5 +70,23 @@
 @media (max-width: 1120px) {
     .table-people {
         border-top: 1px solid #eaeaea;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-people {
+        height: auto;
+        td {
+            padding: rem(10) rem(8);
+        }
+    }
+
+    .table-border {
+        &--1 {
+            th,
+            td {
+                padding: rem(10) rem(8);
+            }
+        }
     }
 }

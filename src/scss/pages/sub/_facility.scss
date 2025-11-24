@@ -57,3 +57,34 @@
         line-height: lh(24);
     }
 }
+
+@media (max-width: 768px) {
+    .conts-facility {
+        .img-wrap {
+            margin-bottom: rem(30);
+        }
+    }
+
+    .facility {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30) 0;
+        &__bg {
+            width: 100%;
+            img {
+                width: rem(120);
+            }
+        }
+        &__content {
+            flex: auto;
+            padding-bottom: rem(10);
+        }
+        &__list {
+            margin-bottom: rem(25);
+        }
+        &__item {
+            width: calc((100% - rem(5)) / 2);
+            padding: rem(10) rem(5);
+        }
+    }
+}
