@@ -8,6 +8,14 @@
     border: 1px solid transparent;
     font-size: rem(14);
     line-height: rem(16);
+    &.btn--lg {
+        min-width: rem(140);
+        padding: rem(18) rem(28);
+        border-radius: rem(6);
+        font-size: rem(20);
+        line-height: 1;
+        text-align: center;
+    }
     &.btn-primary {
         border-color: $color-primary;
         background-color: $color-primary;

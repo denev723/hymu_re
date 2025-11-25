@@ -15,6 +15,9 @@
 @use "components/table" as *;
 @use "components/modal" as *;
 @use "components/alert" as *;
+@use "components/label" as *;
+@use "components/pagination" as *;
+@use "components/af-file" as *;
 
 // pages
 @use "pages/main/main" as *;
@@ -33,3 +36,7 @@
 @use "pages/sub/series" as *;
 @use "pages/sub/sub-introduce" as *;
 @use "pages/sub/sites" as *;
+
+// board
+@use "pages/board/default-list" as *;
+@use "pages/board/default-read" as *;

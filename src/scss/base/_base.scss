@@ -7,7 +7,7 @@
 
 html {
     &::before {
-        content: url("/resources/front/images/sub/snb-home-h.png");
+        content: url("/resources/front/images/sub/snb-home-h.png") url(../images/board/default/notice-rarr-b.png);
         position: absolute;
         width: 0;
         height: 0;
