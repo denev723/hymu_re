@@ -1,0 +1,146 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.board--gallery {
+    max-width: rem(980);
+    margin: 0 auto;
+    .board__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(30) rem(40);
+        margin-bottom: rem(80);
+    }
+    .board-item {
+        &__link {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            &:hover {
+                .board-item__thumb {
+                    &::before {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+        &__content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        &__thumb {
+            height: rem(180);
+            margin-bottom: rem(15);
+            background-color: #bcbcbc;
+            position: relative;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                background-image: url(../images/board/gallery/icon-search.png);
+                background-size: rem(42);
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+        }
+        &__title {
+            margin-bottom: rem(5);
+            font-size: 0;
+            p {
+                font-size: rem(16);
+                line-height: lh(26);
+            }
+            .label {
+                margin-right: rem(5);
+            }
+        }
+        &__info {
+            margin-bottom: rem(10);
+            font-size: rem(12);
+            line-height: lh(22);
+            color: #c8c8c8;
+        }
+        &__desc {
+            flex: 1;
+            margin-bottom: rem(20);
+            font-size: rem(14);
+            line-height: lh(24);
+            color: #999999;
+        }
+    }
+}
+
+@media (max-width: 1140px) {
+    .board--gallery {
+        max-width: rem(640);
+        .board__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .board--gallery {
+        max-width: rem(540);
+        .board__list {
+            gap: rem(30) rem(20);
+            margin-bottom: rem(40);
+        }
+        .board-item {
+            &__thumb {
+                height: rem(160);
+                margin-bottom: rem(10);
+                &::before {
+                    background-size: rem(32);
+                }
+            }
+            &__title {
+                p {
+                    font-size: rem(14);
+                    line-height: lh(24);
+                }
+            }
+            &__info {
+                font-size: rem(10);
+                line-height: lh(20);
+            }
+            &__desc {
+                font-size: rem(13);
+                line-height: lh(23);
+            }
+            &__more {
+                img {
+                    width: rem(32);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .board--gallery {
+        max-width: rem(260);
+        .board__list {
+            grid-template-columns: repeat(1, 1fr);
+            margin-bottom: rem(40);
+        }
+    }
+}

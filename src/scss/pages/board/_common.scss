@@ -1,0 +1,74 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.board__top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0 rem(15);
+    margin-bottom: rem(20);
+}
+
+.board-form {
+    flex: 1;
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0 rem(5);
+        input {
+            width: 100%;
+            max-width: rem(200);
+            height: rem(40);
+            padding: rem(10) rem(20);
+            border-radius: rem(5);
+            border: 1px solid #ccc;
+            font-family: $font-noto-sans-kr;
+            font-size: rem(16);
+            line-height: 1;
+            &:focus {
+                border-color: $color-primary;
+                outline: none;
+            }
+        }
+        .btn-submit {
+            display: block;
+            padding: rem(12) rem(15);
+            border-radius: rem(5);
+            background-color: $color-tab-secondary;
+            font-family: $font-nanum-square;
+            font-size: rem(16);
+            line-height: 1;
+            color: $color-black;
+            text-align: center;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: $color-tab-secondary-hover;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .board__top {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: rem(10) 0;
+        margin-bottom: rem(15);
+    }
+
+    .board-form {
+        &__wrapper {
+            input {
+                width: 100%;
+                max-width: rem(150);
+                height: rem(30);
+                padding: rem(8) rem(15);
+                font-size: rem(14);
+            }
+            .btn-submit {
+                padding: rem(8) rem(12);
+                font-size: rem(14);
+            }
+        }
+    }
+}

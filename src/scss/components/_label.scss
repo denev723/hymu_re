@@ -13,16 +13,20 @@
         line-height: 1;
         color: $color-white;
     }
-    &--primary {
+    &.label--outline {
+        border: 1px solid $color-primary;
+        color: $color-primary;
+    }
+    &.label--primary {
         background-color: $color-primary;
     }
-    &--success {
+    &.label--success {
         background-color: $color-success;
     }
-    &--warning {
+    &.label--warning {
         background-color: $color-warning;
     }
-    &--danger {
+    &.label--danger {
         background-color: $color-danger;
     }
 }

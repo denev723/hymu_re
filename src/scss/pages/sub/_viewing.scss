@@ -1,7 +1,11 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/mixins" as *;
+
 .conts-viewing {
     position: relative;
+    & ~ .board--square-1 {
+        margin-top: rem(50);
+    }
 }
 .viewing__bg {
     position: absolute;
@@ -60,6 +64,11 @@
 }
 
 @media (max-width: 768px) {
+    .conts-viewing {
+        & ~ .board--square-1 {
+            margin-top: rem(40);
+        }
+    }
     .viewing__bg {
         img {
             width: rem(200);
