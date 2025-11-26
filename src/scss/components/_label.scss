@@ -34,12 +34,17 @@
 .category {
     display: inline-block;
     border: 1px solid #938776;
-    padding: rem(5) rem(10);
+    background-color: #938776;
+    padding: rem(6) rem(10);
     font-size: rem(12);
     line-height: 1;
-    color: #938776;
+    color: $color-white;
     &.category--round {
         border-radius: rem(100);
+    }
+    &.category--outline {
+        background-color: $color-white;
+        color: #938776;
     }
 }
 

@@ -88,11 +88,141 @@
     }
 }
 
+.board--gallery-2 {
+    .board__list {
+        max-width: rem(920);
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(30) rem(40);
+        margin: 0 auto rem(80);
+    }
+    .board-item {
+        width: rem(440);
+        &__link {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            &:hover {
+                .board-item__thumb {
+                    &::before {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+        &__thumb {
+            height: rem(200);
+            margin-bottom: rem(20);
+            background-color: #bcbcbc;
+            position: relative;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                background-image: url(../images/board/slide-board-1/icon-search.png);
+                background-size: rem(42);
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+        }
+        &__content {
+            flex: 1;
+        }
+        &__title {
+            margin-bottom: rem(5);
+            font-size: 0;
+            p {
+                font-size: rem(24);
+                line-height: lh(26);
+            }
+            .label {
+                margin-right: rem(5);
+            }
+        }
+        &__info {
+            margin-bottom: rem(10);
+            font-size: rem(13);
+            line-height: lh(23);
+            color: #c8c8c8;
+        }
+        &__desc {
+            flex: 1;
+            margin-bottom: rem(20);
+            font-size: rem(14);
+            line-height: lh(24);
+            @include multi-ellipsis(2);
+        }
+    }
+
+    .board-read {
+        border-top: 2px solid #555555;
+        &__top {
+            padding: rem(21) rem(50) rem(21) 0;
+            border-bottom: 1px solid #938776;
+            position: relative;
+            .category {
+                margin-bottom: rem(5);
+            }
+            .btn-list {
+                height: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        &__body {
+            padding: rem(25) 0;
+            margin-bottom: rem(80);
+            border-bottom: 1px solid #938776;
+        }
+        &__title {
+            font-weight: 700;
+            font-size: rem(20);
+            line-height: lh(26);
+        }
+        &__btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: rem(6);
+        }
+    }
+}
+
 @media (max-width: 1140px) {
     .board--gallery {
         max-width: rem(640);
         .board__list {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 1054px) {
+    .board--gallery-2 {
+        .board__list {
+            max-width: rem(440);
+        }
+        .board__item {
+            width: 100%;
         }
     }
 }
@@ -130,6 +260,54 @@
                 img {
                     width: rem(32);
                 }
+            }
+        }
+    }
+
+    .board--gallery-2 {
+        .board__list {
+            max-width: rem(340);
+            margin-bottom: 0 auto rem(40);
+        }
+        .board-item {
+            &__thumb {
+                height: rem(160);
+                margin-bottom: rem(15);
+            }
+            &__title {
+                p {
+                    font-size: rem(18);
+                    line-height: lh(24);
+                }
+            }
+            &__info {
+                margin-bottom: rem(5);
+                font-size: rem(12);
+                line-height: lh(22);
+            }
+            &__desc {
+                margin-bottom: rem(15);
+                font-size: rem(13);
+                line-height: lh(23);
+            }
+            &__more {
+                img {
+                    width: rem(35);
+                }
+            }
+        }
+
+        .board-read {
+            &__top {
+                padding: rem(12) rem(40) rem(12) 0;
+            }
+            &__body {
+                padding: rem(20) 0;
+                margin-bottom: rem(40);
+            }
+            &__title {
+                font-size: rem(16);
+                line-height: lh(24);
             }
         }
     }

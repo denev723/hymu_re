@@ -18,8 +18,9 @@
         }
         &__btns {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 0 rem(6);
+            gap: rem(6);
         }
         &__content {
             padding: rem(30) rem(20) rem(80);

@@ -113,8 +113,12 @@
     &.active {
         display: block;
     }
+    &__top {
+        padding-bottom: rem(20);
+        border-bottom: 1px solid #dddddd;
+    }
     .modal-content__title {
-        margin-bottom: rem(5);
+        margin-bottom: rem(10);
         font-size: rem(32);
         line-height: lh(42);
     }
@@ -127,6 +131,12 @@
         margin-top: rem(20);
         font-size: rem(14);
         line-height: lh(24);
+    }
+    .modal-list {
+        &__item {
+            font-size: rem(14);
+            line-height: lh(22);
+        }
     }
     img {
         width: 100%;
@@ -187,7 +197,7 @@
 
 @media (max-width: 768px) {
     .modal {
-        padding: rem(20);
+        padding: rem(40) rem(20);
         &__inner {
             max-width: rem(450);
             padding: rem(15);
@@ -226,6 +236,9 @@
     }
 
     .modal-content {
+        &__top {
+            padding-bottom: rem(15);
+        }
         .modal-content__title {
             font-size: rem(20);
             line-height: lh(30);
