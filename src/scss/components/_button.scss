@@ -90,8 +90,32 @@
     }
 }
 
+.btn-list {
+    width: rem(50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        svg {
+            fill: $color-primary-hover;
+        }
+    }
+    svg {
+        width: rem(28);
+        height: rem(25);
+        fill: $color-primary;
+        transition: fill 0.3s ease;
+    }
+}
+
 @media (max-width: 768px) {
     .btn {
+        &.btn--lg {
+            min-width: rem(100);
+            padding: rem(16) rem(18);
+            border-radius: rem(4);
+            font-size: rem(16);
+        }
         &.btn-more {
             width: rem(36);
             height: rem(34);
@@ -109,6 +133,14 @@
                     height: rem(25);
                 }
             }
+        }
+    }
+
+    .btn-list {
+        width: rem(40);
+        svg {
+            width: rem(23);
+            height: rem(20);
         }
     }
 }

@@ -699,4 +699,75 @@ $(document).ready(function () {
       }
     });
   }
+
+  // Content Swiper 초기화 (메인 + 썸네일 연동)
+  const $contentMainSwiper = $("#contentMainSwiper");
+  const $contentThumbsSwiper = $("#contentThumbsSwiper");
+
+  if ($contentMainSwiper.length && $contentThumbsSwiper.length) {
+    // 약간의 지연 후 초기화 (DOM 완전 로드 대기)
+    setTimeout(() => {
+      // 강제로 컨테이너 크기 재계산
+      $contentMainSwiper.css("width", "100%");
+      $contentThumbsSwiper.css("width", "100%");
+
+      // 썸네일 스와이퍼 먼저 초기화
+      const contentThumbsSwiper = new Swiper("#contentThumbsSwiper", {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        freeMode: true,
+        watchSlidesProgress: true,
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+          520: {
+            spaceBetween: 12,
+            slidesPerView: 4,
+          },
+          768: {
+            spaceBetween: 12,
+            slidesPerView: 5,
+          },
+        },
+        on: {
+          breakpoint: function () {
+            this.update();
+          },
+        },
+      });
+
+      // 메인 스와이퍼 초기화 (썸네일과 연동)
+      const contentMainSwiper = new Swiper("#contentMainSwiper", {
+        spaceBetween: 10,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false,
+        },
+        observer: true,
+        observeParents: true,
+        thumbs: {
+          swiper: contentThumbsSwiper,
+        },
+      });
+
+      // Swiper 네비게이션 버튼 연결
+      const $prevBtn = $(".btn-swiper--prev");
+      const $nextBtn = $(".btn-swiper--next");
+
+      if ($prevBtn.length && $nextBtn.length) {
+        $prevBtn.on("click", function () {
+          contentMainSwiper.slidePrev();
+        });
+
+        $nextBtn.on("click", function () {
+          contentMainSwiper.slideNext();
+        });
+      }
+    }, 100);
+  }
 });

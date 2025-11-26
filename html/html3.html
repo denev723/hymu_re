@@ -1,275 +1,32 @@
-<div class="board--square-1">
-  <div class="board__top">
-    <form
-      action="/front/education/exploration/review"
-      method="get"
-      class="board-form"
-    >
-      <input type="hidden" name="sd" value="12" />
-      <input type="hidden" name="sp" value="1" />
-      <input type="hidden" name="so" value="UPDATED_AT_DESC" />
-      <div class="board-form__wrapper">
-        <input
-          type="text"
-          name="sk"
-          id="sk"
-          value=""
-          placeholder=""
-          class="form-control"
-        />
-        <button
-          type="submit"
-          data-action="/front/education/exploration/review?sd=12&amp;sp=1&amp;so=UPDATED_AT_DESC"
-          class="btn-submit"
-        >
-          검색
-        </button>
-      </div>
-    </form>
+<div class="content-swiper swiper main-swiper" id="contentMainSwiper">
+  <div class="swiper-wrapper">
+      <c:forEach var="payload" items="${slidePayloadList}">
+          <div class="swiper-slide">
+              <img src="${slideListVm.thumbBtn(payload.af, null, null).url}" alt="${p.objToText(payload.af, 'name')}">
+          </div>
+      </c:forEach>
   </div>
-  <div class="board__body">
-    <ul class="board__list">
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=208650"
-        >
-          <p class="board-item__title">2019 여름방학 어린이 체험교실</p>
-          <div class="board-item__info">
-            <span class="board-item__date">2019-07-05</span> |
-            <span class="board-item__view">View 2,459</span>
+  <div class="swiper__btns">
+      <button class="btn-swiper btn-swiper--prev">
+          <svg class="btn-swiper__icon">
+              <use xlink:href="/resources/front/images/svg/slide-larr-2.svg#a"></use>
+          </svg>
+          <span class="sr-only">이전 슬라이드</span>
+      </button>
+      <button class="btn-swiper btn-swiper--next">
+          <svg class="btn-swiper__icon">
+              <use xlink:href="/resources/front/images/svg/slide-rarr-2.svg#a"></use>
+          </svg>
+          <span class="sr-only">다음 슬라이드</span>
+      </button>
+  </div>
+</div>
+<div class="content-swiper swiper thumbs-swiper" id="contentThumbsSwiper">
+  <div class="swiper-wrapper">
+      <c:forEach var="payload" items="${slidePayloadList}">
+          <div class="swiper-slide">
+              <img src="${slideListVm.thumbBtn(payload.af, null, null).url}" alt="${p.objToText(payload.af, 'name')}">
           </div>
-          <p class="board-item__content">&nbsp; &nbsp;</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=2889"
-        >
-          <p class="board-item__title">
-            <span class="label label--board label--primary">공지</span>2016
-            겨울방학 교육프로그램
-          </p>
-          <div class="board-item__info">
-            <span class="board-item__date">2016-01-05</span> |
-            <span class="board-item__view">View 3,086</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=2900"
-        >
-          <p class="board-item__title">하반기 교육프로그램</p>
-          <div class="board-item__info">
-            <span class="board-item__date">2015-10-08</span> |
-            <span class="board-item__view">View 2,407</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=2856"
-        >
-          <p class="board-item__title">
-            제2회 어린이의 눈으로 본 문화재 그리기 대회 수상발표입니다.
-          </p>
-          <div class="board-item__info">
-            <span class="board-item__date">2015-05-20</span> |
-            <span class="board-item__view">View 2,204</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=2878"
-        >
-          <p class="board-item__title">
-            제2회 어린이의 눈으로 본 문화재 그리기 대회
-          </p>
-          <div class="board-item__info">
-            <span class="board-item__date">2015-04-13</span> |
-            <span class="board-item__view">View 2,458</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=2977"
-        >
-          <p class="board-item__title">2015 상반기 교육프로그램</p>
-          <div class="board-item__info">
-            <span class="board-item__date">2015-04-03</span> |
-            <span class="board-item__view">View 2,692</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=2790"
-        >
-          <p class="board-item__title">길 위의 인문학 교육프로그램</p>
-          <div class="board-item__info">
-            <span class="board-item__date">2015-03-13</span> |
-            <span class="board-item__view">View 2,474</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=3021"
-        >
-          <p class="board-item__title">2015 겨울방학 교육프로그램</p>
-          <div class="board-item__info">
-            <span class="board-item__date">2014-12-24</span> |
-            <span class="board-item__view">View 2,487</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-
-      <li class="board-item">
-        <a
-          class="board-item__link"
-          href="/front/education/program/youth/read?id=3010"
-        >
-          <p class="board-item__title">
-            가곡한세기 전시연계 프로그램&lt;가곡세상&gt;
-          </p>
-          <div class="board-item__info">
-            <span class="board-item__date">2014-12-08</span> |
-            <span class="board-item__view">View 2,448</span>
-          </div>
-          <p class="board-item__content">-</p>
-          <span class="board-item__more">
-            <span>자세히보기</span>
-            <img
-              src="/resources/front/images/board/square-1/arrow.png"
-              alt=""
-            />
-          </span>
-        </a>
-      </li>
-    </ul>
-    <div class="pagination pagination--center">
-      <ul class="pagination__list">
-        <li class="pagination__item">
-          <a
-            class="pagination__item-link"
-            href="/front/news/notice?sd=12&amp;sp=1&amp;so=UPDATED_AT_DESC"
-          >
-            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="pagination__item">
-          <a
-            class="pagination__item-link"
-            href="/front/news/notice?sd=12&amp;sp=1&amp;so=UPDATED_AT_DESC"
-          >
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-          </a>
-        </li>
-
-        <li class="pagination__item pagination__item--active">
-          <a
-            class="pagination__item-link"
-            href="/front/news/notice?sd=12&amp;sp=1&amp;so=UPDATED_AT_DESC"
-            >1</a
-          >
-        </li>
-
-        <li class="pagination__item">
-          <a
-            class="pagination__item-link"
-            href="/front/news/notice?sd=12&amp;sp=1&amp;so=UPDATED_AT_DESC"
-          >
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="pagination__item">
-          <a
-            class="pagination__item-link"
-            href="/front/news/notice?sd=12&amp;sp=1&amp;so=UPDATED_AT_DESC"
-          >
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
+      </c:forEach>
   </div>
 </div>
