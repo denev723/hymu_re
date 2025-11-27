@@ -108,6 +108,19 @@
     }
 }
 
+.btn-pdf {
+    width: rem(36);
+    height: rem(53);
+    display: block;
+    background-image: url(../images/board/pdf/icon-pdf.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    &.btn-pdf--on {
+        background-image: url(../images/board/pdf/icon-pdf-on.png);
+    }
+}
+
 @media (max-width: 768px) {
     .btn {
         &.btn--lg {
@@ -142,5 +155,10 @@
             width: rem(23);
             height: rem(20);
         }
+    }
+
+    .btn-pdf {
+        width: rem(31);
+        height: rem(46);
     }
 }

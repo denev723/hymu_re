@@ -1,0 +1,161 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.board--pdf {
+    .board__list {
+        max-width: rem(820);
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(20) rem(50);
+        margin: 0 auto rem(80);
+    }
+    .board-item {
+        width: rem(240);
+        border-bottom: rem(3) solid $color-black;
+        &__link {
+            display: block;
+            position: relative;
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                background-image: url(../images/board/pdf/icon-search.png);
+                background-size: rem(42);
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            &:hover {
+                &::before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        &__thumb {
+            height: rem(329);
+            margin-bottom: rem(30);
+            position: relative;
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+        }
+        &__volume {
+            margin-bottom: rem(5);
+            font-weight: 800;
+            font-size: rem(28);
+            line-height: lh(38);
+        }
+        &__title {
+            padding-right: rem(40);
+            padding-bottom: rem(25);
+            font-size: rem(18);
+            line-height: lh(28);
+            position: relative;
+            &::before {
+                content: "";
+                width: rem(40);
+                height: rem(3);
+                background-color: $color-black;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            .btn-pdf {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        &__content {
+            &-bottom {
+                padding: rem(20) 0 rem(35);
+                font-size: rem(12);
+                line-height: lh(20);
+                color: #aaaaaa;
+            }
+        }
+    }
+}
+
+@media (max-width: 940px) {
+    .board--pdf {
+        .board__list {
+            max-width: rem(530);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .board--pdf {
+        .board__list {
+            max-width: rem(430);
+            gap: rem(20) rem(30);
+            margin: 0 auto rem(40);
+        }
+        .board-item {
+            width: rem(200);
+            border-bottom-width: rem(2);
+            &__link {
+                &::before {
+                    background-size: rem(32);
+                }
+            }
+            &__thumb {
+                height: rem(280);
+                margin-bottom: rem(20);
+            }
+            &__volume {
+                font-size: rem(20);
+                line-height: lh(30);
+            }
+            &__title {
+                padding-right: rem(35);
+                padding-bottom: rem(20);
+                font-size: rem(16);
+                line-height: lh(26);
+                &::before {
+                    width: rem(30);
+                    height: rem(2);
+                }
+            }
+            &__content {
+                &-bottom {
+                    padding: rem(15) 0 rem(30);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 470px) {
+    .board--pdf {
+        .board__list {
+            max-width: rem(200);
+        }
+    }
+}

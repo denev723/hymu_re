@@ -23,6 +23,7 @@
 
 // 한 줄 말줄임
 @mixin ellipsis {
+    display: -webkit-box;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
