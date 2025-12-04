@@ -420,6 +420,7 @@
     }
     &__boards {
         max-width: rem(1262);
+        min-height: rem(1180);
         width: 100%;
         flex-shrink: 0;
         .board-list {
@@ -673,6 +674,7 @@
     .main-common {
         &__boards {
             max-width: none;
+            min-height: auto;
             .board-list {
                 .board-card {
                     &:nth-child(3n) {
