@@ -53,6 +53,7 @@
             }
         }
         &.content-list--2 {
+            flex: 1;
             .content-list__item {
                 display: flex;
                 font-size: rem(14);
