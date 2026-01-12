@@ -66,9 +66,8 @@
                             height: rem(14);
                             background-color: #dcdcdc;
                             position: absolute;
-                            top: 50%;
+                            top: rem(6);
                             right: rem(-16);
-                            transform: translateY(-50%);
                         }
                     }
                     .content-list__desc {
