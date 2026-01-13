@@ -126,6 +126,11 @@
 .gnb-list {
     display: flex;
     &__item {
+        &:has(.btn-lang) {
+            display: flex;
+            align-items: center;
+            margin-right: rem(10);
+        }
         .btn {
             width: rem(52);
             height: rem(56);
@@ -153,11 +158,27 @@
                     height: rem(25);
                 }
             }
+            &.btn-lang {
+                width: rem(42);
+                height: rem(30);
+                border-radius: rem(999);
+                border: rem(2) solid $color-white;
+                font-family: $font-nanum-square;
+                font-weight: 700;
+                font-size: rem(14);
+                line-height: 1;
+                color: $color-white;
+                transition: all 0.3s ease;
+                &:hover {
+                    border-color: $color-primary;
+                    color: $color-primary;
+                }
+            }
         }
     }
 }
 
-@media (max-width: 1310px) {
+@media (max-width: 1340px) {
     .site-header {
         justify-content: space-between;
         &__lnb {
@@ -174,8 +195,8 @@
         padding: 0 rem(20);
         top: rem(30);
         &__logo {
-            width: rem(209);
-            height: rem(40);
+            width: rem(200);
+            height: rem(38);
         }
         &__gnb {
             margin-right: rem(-11);
@@ -185,6 +206,9 @@
     .gnb-list {
         display: flex;
         &__item {
+            &:has(.btn-lang) {
+                margin-right: rem(5);
+            }
             .btn {
                 width: rem(44);
                 height: rem(55);
@@ -199,6 +223,11 @@
                         width: rem(22);
                         height: rem(19);
                     }
+                }
+                &.btn-lang {
+                    width: rem(36);
+                    height: rem(28);
+                    font-size: rem(12);
                 }
             }
         }

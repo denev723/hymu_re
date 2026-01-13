@@ -1,10 +1,19 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/mixins" as *;
 
+// html:lang(en) {
+//     .conts-antiquity {
+//         .conts__bg {
+//             width: rem(300);
+//         }
+//     }
+// }
+
 .conts-antiquity {
     display: flex;
+    gap: 0 rem(50);
     .conts__bg {
-        width: rem(250);
+        width: rem(200);
     }
     .conts__body {
         flex: 1;

@@ -38,11 +38,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: rem(14) rem(10);
+        padding: rem(11) rem(10);
         border-radius: rem(6);
         border: 1px solid #938776;
         font-size: rem(14);
-        line-height: 1;
+        line-height: lh(20);
         color: #666666;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -84,7 +84,7 @@
         }
         &__item {
             width: calc((100% - rem(5)) / 2);
-            padding: rem(10) rem(5);
+            padding: rem(8) rem(5);
         }
     }
 }
