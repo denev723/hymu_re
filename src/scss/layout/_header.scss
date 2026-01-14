@@ -233,3 +233,13 @@
         }
     }
 }
+
+@media (max-width: 400px) {
+    .gnb-list {
+        &__item {
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+}

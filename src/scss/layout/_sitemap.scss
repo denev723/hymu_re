@@ -1,6 +1,16 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+html:lang(en) {
+    .side-menu {
+        &__link {
+            padding: rem(5);
+            font-size: rem(14);
+            text-align: center;
+        }
+    }
+}
+
 .sitemap {
     width: 100%;
     height: 100vh;
@@ -150,18 +160,26 @@
 }
 
 @media (max-width: 768px) {
+    html:lang(en) {
+        .side-menu {
+            &__link {
+                font-size: rem(12);
+            }
+        }
+    }
+
     .sitemap {
         &__inner {
-            max-width: rem(251);
+            max-width: rem(261);
         }
         &__side {
-            width: rem(50);
+            width: rem(60);
             padding-top: rem(50);
         }
         &__content {
-            width: calc(100% - rem(50));
+            width: calc(100% - rem(60));
             &-body {
-                height: calc(100% - rem(50));
+                height: calc(100% - rem(60));
                 padding: rem(30) rem(20);
             }
         }
@@ -169,7 +187,7 @@
 
     .side-menu {
         &__link {
-            height: rem(50);
+            height: rem(60);
             align-items: center;
             gap: rem(4) 0;
             font-size: rem(12);
