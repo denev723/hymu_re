@@ -6,6 +6,9 @@
         max-width: rem(1700);
         margin: 0 auto;
         padding: 0 rem(60);
+        & > *:first-child {
+            border-top: rem(3) solid $color-black;
+        }
     }
     &__content {
         padding: rem(50) 0 rem(75);
@@ -57,7 +60,6 @@
 
 .footer-menu {
     padding: 0 rem(20);
-    border-top: rem(3) solid $color-black;
     border-bottom: 1px solid $color-black;
     font-size: 0;
     text-align: center;
