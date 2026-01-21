@@ -234,17 +234,26 @@
         .tab__list {
             padding-left: 0.5px;
         }
+        .tab__item {
+            width: 50%;
+        }
     }
     &.tab--3 {
         max-width: rem(600);
         .tab__list {
             padding-left: 1px;
         }
+        .tab__item {
+            width: 33.33333333333333%;
+        }
     }
     &.tab--4 {
         max-width: rem(800);
         .tab__list {
-            padding-left: 1.5ox;
+            padding-left: 1.5px;
+        }
+        .tab__item {
+            width: 25%;
         }
     }
     &__list {
@@ -254,7 +263,7 @@
         padding-left: rem(2);
     }
     &__item {
-        width: rem(200);
+        width: 20%;
         display: flex;
         margin-top: -1px;
         margin-left: -1px;
@@ -304,6 +313,7 @@
     .tab {
         max-width: rem(800);
         &__item {
+            width: 25%;
             &:nth-child(5n + 1) {
                 margin-left: -1px;
             }
@@ -322,11 +332,15 @@
             .tab__list {
                 padding-left: 1px;
             }
+            .tab__item {
+                width: 33.33333333333333%;
+            }
         }
         &__list {
             padding-left: 1px;
         }
         &__item {
+            width: 33.33333333333333%;
             &:nth-child(4n + 1) {
                 margin-left: -1px;
             }
