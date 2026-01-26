@@ -29,9 +29,7 @@ $(document).ready(function () {
         return false;
       }
 
-      const isInsideList = $closestItem
-        .closest(".lnb-list")
-        .is($lnbItems.parent());
+      const isInsideList = $closestItem.closest(".lnb-list").is($lnbItems.parent());
 
       if (!isInsideList) {
         return false;
@@ -146,8 +144,7 @@ $(document).ready(function () {
     const $sitemapCloseButtons = $(".btn-close--1");
 
     const lockBodyScroll = () => {
-      const scrollBarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
       const currentPaddingRight = parseInt($body.css("padding-right"), 10) || 0;
 
       if (scrollBarWidth > 0) {
@@ -191,10 +188,7 @@ $(document).ready(function () {
     });
 
     $sitemap.on("click", function (event) {
-      if (
-        !$sitemapInner.is(event.target) &&
-        $sitemapInner.has(event.target).length === 0
-      ) {
+      if (!$sitemapInner.is(event.target) && $sitemapInner.has(event.target).length === 0) {
         closeSitemap();
       }
     });
@@ -293,22 +287,8 @@ $(document).ready(function () {
     const $prevBtn = $newsSection.find(".btn-slide--prev");
     const $nextBtn = $newsSection.find(".btn-slide--next");
 
-    // 슬라이드 너비 계산 함수
-    const getSlideWidth = () => {
-      const $firstCard = $newsSwiperEl.find(".board-card").first();
-      if ($firstCard.length) {
-        // 카드 너비 + margin-right
-        const cardWidth = $firstCard.outerWidth();
-        const marginRight = parseInt($firstCard.css("margin-right")) || 0;
-        return cardWidth + marginRight;
-      }
-      // 기본값 (rem(380) + rem(18) = 398px, 기본 폰트 16px 기준)
-      return window.innerWidth <= 768 ? 280 : 398;
-    };
-
     const newsSwiper = new Swiper("#newsSwiper", {
       slidesPerView: "auto",
-      spaceBetween: 18,
       slidesPerGroup: 1,
       loop: false,
       pagination: {
@@ -316,12 +296,6 @@ $(document).ready(function () {
         type: "progressbar",
       },
       on: {
-        init: function () {
-          // 초기화 후 슬라이드 너비 재설정 (모바일 대응)
-          setTimeout(function () {
-            newsSwiper.update();
-          }, 100);
-        },
         autoplayStart: function () {
           $toggleBtn.removeClass("paused").addClass("playing");
         },
@@ -542,9 +516,7 @@ $(document).ready(function () {
     $modalContents.removeClass("active");
 
     if (targetSelector) {
-      const $targetContent = $modalContents.filter(
-        `[data-item="${targetSelector}"]`
-      );
+      const $targetContent = $modalContents.filter(`[data-item="${targetSelector}"]`);
       $targetContent.addClass("active");
     }
   };
@@ -575,10 +547,7 @@ $(document).ready(function () {
 
   if ($modal.length) {
     $modal.on("click", function (event) {
-      if (
-        !$modalInner.is(event.target) &&
-        $modalInner.has(event.target).length === 0
-      ) {
+      if (!$modalInner.is(event.target) && $modalInner.has(event.target).length === 0) {
         closeModal();
       }
     });
@@ -673,10 +642,7 @@ $(document).ready(function () {
   const $contsBodyInner = $(".conts__body-inner");
   const $contsBottom = $(".conts__bottom");
 
-  if (
-    $contsTabLinksGeneral.length &&
-    ($contsBodyInner.length || $contsBottom.length)
-  ) {
+  if ($contsTabLinksGeneral.length && ($contsBodyInner.length || $contsBottom.length)) {
     $contsTabLinksGeneral.on("click", function (event) {
       event.preventDefault();
       const $link = $(this);
